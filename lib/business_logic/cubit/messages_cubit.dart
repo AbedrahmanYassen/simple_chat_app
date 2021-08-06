@@ -7,10 +7,10 @@ part 'messages_state.dart';
 
 class MessagesCubit extends Cubit<MessagesState> {
   late MessagesRepository messagesRepository;
-  late String messagesKey;
   List<Message> messages = [];
-  MessagesCubit({required this.messagesRepository, required this.messagesKey})
-      : super(MessagesInitial());
+  MessagesCubit({
+    required this.messagesRepository,
+  }) : super(MessagesInitial());
   List<Message> getAllMessages() {
     messagesRepository.getAllMessages().then((messages) {
       emit(MessagesListState(messages: messages));

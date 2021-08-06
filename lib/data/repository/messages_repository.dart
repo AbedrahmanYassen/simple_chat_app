@@ -3,8 +3,7 @@ import 'package:islamic_chat_app/data/web_services/messages_from_the_realtime_da
 
 class MessagesRepository {
   final MessagesFromTheDatabase messagesFromTheDatabase;
-  MessagesRepository(
-      {required this.messagesFromTheDatabase, required String messageKey});
+  MessagesRepository({required this.messagesFromTheDatabase});
   Future<List<Message>> getAllMessages() async {
     Map<String, dynamic> messages =
         await messagesFromTheDatabase.getAllMessages();
