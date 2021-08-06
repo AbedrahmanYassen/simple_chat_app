@@ -4,3 +4,8 @@ part of 'messages_cubit.dart';
 abstract class MessagesState {}
 
 class MessagesInitial extends MessagesState {}
+
+class MessagesListState extends MessagesState {
+  final List<Message> messages;
+  MessagesListState({required this.messages});
+}
