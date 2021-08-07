@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:islamic_chat_app/data/models/user.dart';
-import 'package:islamic_chat_app/presentation/screens/chat_screen.dart';
+
+import 'chat_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   Brother theUser;

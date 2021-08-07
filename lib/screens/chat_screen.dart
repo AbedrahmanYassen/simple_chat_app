@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:islamic_chat_app/constants/my_colors.dart';
 import 'package:islamic_chat_app/data/models/message.dart';
 import 'package:islamic_chat_app/data/models/user.dart';
 import 'package:islamic_chat_app/presentation/widgets/custom_app_bar.dart';
@@ -25,7 +26,7 @@ class _ChatScreenState extends State<ChatScreen> {
   ScrollController? _scrollController;
   late List<Message> allMessages;
   TextStyle _speakerStyle =
-      TextStyle(color: Colors.green.shade200, fontSize: 15);
+      TextStyle(color: MyColors.INTERMIDATE_GREEN, fontSize: 15);
   @override
   void initState() {
     super.initState();
@@ -77,7 +78,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   dynamic data = snapshot.value;
                   if (widget.brotherPart1.name == data['from']) {
                     return MessageBox(
-                      color: Colors.green.shade100,
+                      color: MyColors.LIGHT_GREEN,
                       rightPadding: 0,
                       leftPadding: 60,
                       content: data['content'],
@@ -85,7 +86,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     );
                   } else {
                     return MessageBox(
-                        color: Colors.green.shade700,
+                        color: MyColors.Dark_Green,
                         leftPadding: 0,
                         rightPadding: 60,
                         content: data['content'],
@@ -96,7 +97,7 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
             Container(
               decoration: BoxDecoration(
-                  color: Colors.green.shade200,
+                  color: MyColors.INTERMIDATE_GREEN,
                   borderRadius: BorderRadius.circular(35)),
               child: _getMessageField(),
             )
@@ -109,7 +110,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget _getMessageField() {
     return TextField(
       controller: controller,
-      cursorColor: Colors.green.shade700,
+      cursorColor: MyColors.Dark_Green,
       decoration: InputDecoration(
           suffixIcon: _buildSendMessageButton(),
           hintText: 'send a message',

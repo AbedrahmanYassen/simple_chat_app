@@ -1,13 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:islamic_chat_app/constants/my_colors.dart';
 import 'package:islamic_chat_app/data/web_services/authentication.dart';
 import 'package:islamic_chat_app/data/models/user.dart';
-import 'package:islamic_chat_app/presentation/screens/friends_screen.dart';
-import 'package:islamic_chat_app/presentation/screens/sign_up_screen.dart';
+import 'package:islamic_chat_app/screens/sign_up_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'friends_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({Key? key}) : super(key: key);
@@ -158,7 +158,7 @@ class _LogInScreenState extends State<LogInScreen> {
       required String hintText}) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.green.shade200,
+          color: MyColors.INTERMIDATE_GREEN,
           borderRadius: BorderRadius.circular(35)),
       child: TextField(
         controller: controller,
@@ -169,28 +169,15 @@ class _LogInScreenState extends State<LogInScreen> {
         decoration: InputDecoration(
           hintText: hintText,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.green.shade200),
+            borderSide: BorderSide(color: MyColors.INTERMIDATE_GREEN),
             borderRadius: BorderRadius.circular(35),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.green.shade200),
+            borderSide: BorderSide(color: MyColors.INTERMIDATE_GREEN),
             borderRadius: BorderRadius.circular(35),
           ),
         ),
       ),
     );
   }
-  // bool _checkAUserHasMade(Brother brother) {
-  //   FirebaseFirestore.instance
-  //       .collection('brothers')
-  //       .get()
-  //       .then((QuerySnapshot value) {
-  //     value.docs.forEach((element) {
-  //       if(element.id == brother.){
-  //
-  //       }
-  //     });
-  //   });
-  //   return false;
-  // }
 }

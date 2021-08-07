@@ -2,12 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:islamic_chat_app/constants/my_colors.dart';
 import 'package:islamic_chat_app/data/models/user.dart';
-import 'package:islamic_chat_app/presentation/screens/chat_screen.dart';
-import 'package:islamic_chat_app/presentation/screens/login_screen.dart';
-import 'package:islamic_chat_app/presentation/screens/search_screen.dart';
-import 'package:islamic_chat_app/presentation/widgets/curved_drawer.dart';
+import 'package:islamic_chat_app/screens/search_screen.dart';
 import 'dart:io';
+
+import 'chat_screen.dart';
+import 'login_screen.dart';
 
 class FriendsScreen extends StatelessWidget {
   Brother brother;
@@ -45,7 +46,7 @@ class FriendsScreen extends StatelessWidget {
               child: Container(
                   width: 200,
                   height: 200,
-                  color: Colors.green.shade50,
+                  color: MyColors.LIGHT_GREEN,
                   child: Center(child: Text("Something went wrong"))),
             ),
           );
@@ -97,15 +98,6 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          // Navigator.push(context, MaterialPageRoute(builder: (context) {
-          //   return LogInScreen();
-          // }));
-          // downloadedImage = await FirebaseStorage.instance
-          //     .ref('Capture.PNG')
-          //     .getDownloadURL();
-          // setState(() {});
-          // Within your widgets:
-          // Image.network(downloadURL);
           result = (await FilePicker.platform.pickFiles())!;
           if (result != null) {
             print(result.files.single.path as String);
@@ -115,15 +107,6 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
         child: (downloadedImage.isEmpty)
             ? Icon(Icons.circle)
             : Image.network(downloadedImage),
-      ),
-      endDrawer: Drawer(
-        elevation: 0.0,
-        child: SafeArea(
-          child: CurvedDrawer(
-            hight: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width * 0.5,
-          ),
-        ),
       ),
       appBar: AppBar(
         //
@@ -160,7 +143,7 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
             width: 40,
             height: 40,
             decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Colors.green.shade200),
+                shape: BoxShape.circle, color: MyColors.INTERMIDATE_GREEN),
           ),
         ),
       ),
@@ -218,7 +201,7 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
                         child: SizedBox(
                           height: 100,
                           child: Card(
-                            color: Colors.green.shade200,
+                            color: MyColors.INTERMIDATE_GREEN,
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Row(
@@ -226,7 +209,7 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
                                 children: [
                                   CircleAvatar(
                                     radius: 40,
-                                    backgroundColor: Colors.green.shade50,
+                                    backgroundColor: MyColors.LIGHT_GREEN,
                                   ),
                                   SizedBox(
                                     width: 10,
@@ -239,7 +222,7 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
                                       Text(
                                         data["name"],
                                         style: TextStyle(
-                                            color: Colors.green.shade900,
+                                            color: MyColors.Dark_Green,
                                             fontWeight: FontWeight.bold,
                                             fontSize: 20),
                                       ),

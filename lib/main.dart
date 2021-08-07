@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:islamic_chat_app/presentation/screens/friends_screen.dart';
-import 'package:islamic_chat_app/presentation/screens/login_screen.dart';
-import 'package:islamic_chat_app/presentation/screens/sign_up_screen.dart';
+import 'package:islamic_chat_app/screens/friends_screen.dart';
+import 'package:islamic_chat_app/screens/login_screen.dart';
+import 'package:islamic_chat_app/screens/sign_up_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'data/models/user.dart';
@@ -66,65 +66,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-//
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key? key}) : super(key: key);
-//
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: FutureBuilder(
-//         // Initialize FlutterFire:
-//         future: _initialization,
-//         builder: (context, snapshot) {
-//           // Check for errors
-//           if (snapshot.hasError) {
-//             return Center(child: Text('Error'));
-//           }
-//
-//           // Once complete, show your application
-//           if (snapshot.connectionState == ConnectionState.done) {
-//             return Center(child: Text(snapshot.data.toString()));
-//           }
-//
-//           // Otherwise, show something whilst waiting for initialization to complete
-//           return Center(child: Text('loading'));
-//         },
-//       ),
-//     );
-//   }
-// }
-//
-// class Loading extends StatelessWidget {
-//   const Loading({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-//
-// class MyAwesomeApp extends StatelessWidget {
-//   const MyAwesomeApp({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }
-//
-// class SomethingWentWrong extends StatelessWidget {
-//   const SomethingWentWrong({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container();
-//   }
-// }

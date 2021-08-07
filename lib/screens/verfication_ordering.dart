@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:islamic_chat_app/presentation/screens/login_screen.dart';
+
+import 'login_screen.dart';
 
 class VerificationOrdering extends StatefulWidget {
   const VerificationOrdering({Key? key}) : super(key: key);

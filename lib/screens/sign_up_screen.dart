@@ -4,9 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:islamic_chat_app/data/web_services/authentication.dart';
-import 'package:islamic_chat_app/presentation/screens/login_screen.dart';
-import 'package:islamic_chat_app/presentation/screens/verfication_ordering.dart';
+import 'package:islamic_chat_app/screens/verfication_ordering.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -215,17 +216,5 @@ class _SignUpScreenState extends State<SignUpScreen> {
     } catch (e) {
       addBrother(email);
     }
-/*
-    reference
-        .doc('$email')
-        .set({
-          "name": preferences.getString('name'),
-          "friends": [],
-          "id": preferences.getInt('id')
-        })
-        .then((value) => Fluttertoast.showToast(msg: 'hey done '))
-        .catchError((onError) {
-          print(onError.toString());
-        });*/
   }
 }
