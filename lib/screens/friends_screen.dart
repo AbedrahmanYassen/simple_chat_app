@@ -96,23 +96,7 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          result = (await FilePicker.platform.pickFiles())!;
-          if (result != null) {
-            print(result.files.single.path as String);
-            File file = new File(result.files.single.path as String);
-          }
-        },
-        child: (downloadedImage.isEmpty)
-            ? Icon(Icons.circle)
-            : Image.network(downloadedImage),
-      ),
       appBar: AppBar(
-        //
-        // actions: [
-        //
-        // ],
         title: Row(
           children: [
             Text(widget.brother.name),
