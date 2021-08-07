@@ -2,11 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:islamic_chat_app/business_logic/cubit/messages_cubit.dart';
 import 'package:islamic_chat_app/data/models/user.dart';
-import 'package:islamic_chat_app/data/repository/messages_repository.dart';
-import 'package:islamic_chat_app/data/web_services/messages_from_the_realtime_database.dart';
 import 'package:islamic_chat_app/presentation/screens/chat_screen.dart';
 import 'package:islamic_chat_app/presentation/screens/login_screen.dart';
 import 'package:islamic_chat_app/presentation/screens/search_screen.dart';
@@ -206,22 +202,15 @@ class _FriendsScreenApplicationState extends State<FriendsScreenApplication> {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return BlocProvider(
-                                    create: (context) => MessagesCubit(
-                                          messagesRepository:
-                                              new MessagesRepository(
-                                                  messagesFromTheDatabase:
-                                                      MessagesFromTheDatabase(
-                                                          messageKey:
-                                                              '${widget.brother.id + data['id']}')),
-                                        ),
-                                    child: ChatScreen(
-                                        brotherPart1: widget.brother as Brother,
-                                        brotherPart2: Brother(
-                                            friends: data["friends"],
-                                            name: data["name"],
-                                            id: data["id"],
-                                            email: data["email"])));
+                                return ChatScreen(
+                                  brotherPart1: widget.brother,
+                                  brotherPart2: Brother(
+                                    friends: data["friends"],
+                                    name: data["name"],
+                                    id: data["id"],
+                                    email: data["email"],
+                                  ),
+                                );
                               },
                             ),
                           );

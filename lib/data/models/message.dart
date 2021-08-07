@@ -1,11 +1,13 @@
 class Message {
-  late String content;
-  late String from;
-  late String date;
+  String content;
+  String from;
+  String date;
 
-  Message.fromJson(Map<String, dynamic> jsonObejct) {
-    content = jsonObejct['content'];
-    from = jsonObejct['from'];
-    date = jsonObejct['date'];
+  Message({required this.content, required this.from, required this.date});
+  factory Message.fromJson(Map<String, dynamic> jsonObejct) {
+    return Message(
+        content: jsonObejct['content'],
+        from: jsonObejct['from'],
+        date: jsonObejct['date']);
   }
 }
