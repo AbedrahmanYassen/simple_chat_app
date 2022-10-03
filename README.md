@@ -1,4 +1,4 @@
-# islamic_chat_app
+# Chat App
 
 This is app made before learning state management flutter.
 this app has been made using the firebase.
